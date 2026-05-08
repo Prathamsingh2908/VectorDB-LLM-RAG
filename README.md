@@ -176,3 +176,9 @@ KD-Tree pruning relies on axis-aligned distance bounds. In high dimensions, almo
 | `g++: command not found`    | Add `C:\msys64\ucrt64\bin` to Windows PATH                                         |
 | Port 8080 already in use    | Kill the process: `netstat -ano \| findstr 8080` then `taskkill /PID <pid> /F`     |
 | LLM answer is slow          | Normal — llama3.2 takes 10–30s on a laptop CPU. Use llama3.2:1b for faster answers |
+
+## Commands to run
+
+1. g++ main.cpp -o db.exe -std=c++17 -lws2_32
+
+2. .\db.exe

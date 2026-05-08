@@ -129,16 +129,6 @@ curl -X POST http://localhost:8080/doc/ask `
 
 ---
 
-## Project Structure
-
-```
-VectorDB/
-├── main.cpp        ← C++ backend (HNSW, KD-Tree, BruteForce, REST API, RAG)
-├── httplib.h       ← Single-header HTTP server library (cpp-httplib)
-├── index.html      ← Frontend (PCA scatter plot, chat UI, benchmark)
-└── README.md       ← This file
-```
-
 ### Architecture (main.cpp)
 
 ```
@@ -186,25 +176,3 @@ KD-Tree pruning relies on axis-aligned distance bounds. In high dimensions, almo
 | `g++: command not found`    | Add `C:\msys64\ucrt64\bin` to Windows PATH                                         |
 | Port 8080 already in use    | Kill the process: `netstat -ano \| findstr 8080` then `taskkill /PID <pid> /F`     |
 | LLM answer is slow          | Normal — llama3.2 takes 10–30s on a laptop CPU. Use llama3.2:1b for faster answers |
-
-### Use a Smaller/Faster LLM
-
-If llama3.2 is too slow on your laptop, switch to the 1B model:
-
-```powershell
-ollama pull llama3.2:1b
-```
-
-Then edit [main.cpp](main.cpp) line where `genModel` is set:
-
-```cpp
-std::string genModel = "llama3.2:1b";   // change this
-```
-
-Recompile and restart.
-
----
-
-## License
-
-MIT — use this however you want.
